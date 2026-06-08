@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Logo } from "@/components/logo";
 import { Sparkles, Compass, Map, BookOpen, Mic, Users, Building2, ArrowRight, CheckCircle2, Target, Brain, Rocket } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -33,8 +34,8 @@ function Header() {
     <header className="sticky top-0 z-30 backdrop-blur bg-background/80 border-b border-border">
       <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
+          <div className="w-8 h-8 rounded-lg bg-transparent flex items-center justify-center overflow-hidden">
+            <Logo size={24} />
           </div>
           <span className="font-semibold tracking-tight">Nawasena</span>
         </Link>
@@ -58,7 +59,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/20 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-primary/20 blur-[120px]" />
       <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-medium mb-6">
@@ -95,7 +96,7 @@ function Hero() {
 function HeroVisual() {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
       <div className="relative bg-card border border-border rounded-2xl p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -105,7 +106,7 @@ function HeroVisual() {
           <div className="text-3xl font-bold text-primary">72%</div>
         </div>
         <div className="h-2 bg-surface rounded-full overflow-hidden mb-6">
-          <div className="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style={{ width: "72%" }} />
+          <div className="h-full bg-linear-to-r from-primary to-secondary rounded-full" style={{ width: "72%" }} />
         </div>
         <div className="space-y-3">
           {[
@@ -272,7 +273,7 @@ function CTA() {
     <section className="border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="relative bg-card border border-border rounded-3xl p-12 overflow-hidden text-center">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/20 blur-[120px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-125 h-75 bg-primary/20 blur-[120px]" />
           <div className="relative">
             <h2 className="text-4xl font-bold tracking-tight">Your dream career is one roadmap away.</h2>
             <p className="mt-4 text-muted-foreground">Free for students. No credit card required.</p>
@@ -296,8 +297,8 @@ function Footer() {
     <footer className="py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
-            <Sparkles className="w-3 h-3 text-primary-foreground" />
+          <div className="w-6 h-6 rounded-md bg-transparent flex items-center justify-center overflow-hidden">
+            <Logo size={18} />
           </div>
           <span>© 2026 Nawasena. Built for ambitious students.</span>
         </div>

@@ -1,10 +1,11 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { ReactNode } from "react";
 import {
   Home, Compass, Bookmark, Users, Mic, GraduationCap, ClipboardList, User,
   LayoutDashboard, Briefcase, UserCheck, ClipboardCheck, BarChart3, Settings,
-  Sparkles, Bell, Search, ArrowLeftRight,
+  Sparkles, Bell, Search, ArrowLeftRight, LogOut,
 } from "lucide-react";
+import { Logo } from "@/components/logo";
 
 const studentNav = [
   { to: "/app", label: "Home", icon: Home, exact: true },
@@ -29,18 +30,23 @@ const recruiterNav = [
 
 export function AppShell({ children, mode = "student" }: { children: ReactNode; mode?: "student" | "recruiter" }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
   const nav = mode === "student" ? studentNav : recruiterNav;
   const switchTo = mode === "student" ? "/recruiter" : "/app";
 
   const isActive = (to: string, exact?: boolean) =>
     exact ? pathname === to : pathname === to || pathname.startsWith(to + "/");
 
+  const logout = () => {
+    navigate({ to: "/" });
+  };
+
   return (
     <div className="min-h-screen flex bg-background text-foreground">
       <aside className="w-64 shrink-0 bg-sidebar border-r border-sidebar-border flex flex-col sticky top-0 h-screen">
         <Link to="/" className="px-6 h-16 flex items-center gap-2 border-b border-sidebar-border">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
+          <div className="w-10 h-10 rounded-lg overflow-hidden bg-transparent flex items-center justify-center">
+            <Logo size={32} />
           </div>
           <span className="font-semibold tracking-tight">Nawasena</span>
         </Link>
@@ -66,6 +72,13 @@ export function AppShell({ children, mode = "student" }: { children: ReactNode; 
               );
             })}
           </nav>
+          <button
+            onClick={logout}
+            className="mt-3 flex items-center gap-2 w-full rounded-lg bg-red-500/20 text-red-700 px-3 py-2 text-sm font-medium transition-colors duration-150 hover:bg-red-600 hover:text-white"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Log out</span>
+          </button>
         </div>
         <div className="mt-auto p-3 border-t border-sidebar-border">
           <Link to={switchTo}
@@ -89,7 +102,7 @@ export function AppShell({ children, mode = "student" }: { children: ReactNode; 
             <Bell className="w-4 h-4" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-sm font-semibold text-primary-foreground">
+            <div className="w-9 h-9 rounded-full bg-linear-to-br from-primary to-secondary flex items-center justify-center text-sm font-semibold text-primary-foreground">
               {mode === "student" ? "AR" : "HR"}
             </div>
             <div className="text-sm leading-tight">

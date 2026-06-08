@@ -29,7 +29,7 @@ function Community() {
           {communityPosts.map(p => (
             <Card key={p.title} className="p-5 hover:border-primary/50 transition-colors">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xs font-semibold text-primary-foreground">{p.author.split(" ").map(n => n[0]).join("")}</div>
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-secondary flex items-center justify-center text-xs font-semibold text-primary-foreground">{p.author.split(" ").map(n => n[0]).join("")}</div>
                 <div className="flex-1">
                   <div className="text-sm font-medium">{p.author}</div>
                   <div className="text-xs text-muted-foreground">{p.role} • {p.time}</div>
@@ -59,7 +59,7 @@ function Community() {
             <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Active Mentors</div>
             {["Andi Pratama","Rizky Fauzi","Maya R."].map(m => (
               <div key={m} className="flex items-center gap-3 py-2.5 border-t border-border first:border-0 first:pt-0">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xs font-semibold text-primary-foreground">{m.split(" ").map(n => n[0]).join("")}</div>
+                <div className="w-9 h-9 rounded-full bg-linear-to-br from-primary to-secondary flex items-center justify-center text-xs font-semibold text-primary-foreground">{m.split(" ").map(n => n[0]).join("")}</div>
                 <div className="flex-1 text-sm">{m}</div>
                 <button className="text-xs text-primary">Follow</button>
               </div>

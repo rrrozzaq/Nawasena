@@ -1,7 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { Sparkles, ArrowRight, ArrowLeft, Check, Mail, Linkedin, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check, Mail, Linkedin, ChevronRight } from "lucide-react";
 import { universities, careerInterests, locations, skillBank } from "@/lib/mock-data";
+import { Logo } from "@/components/logo";
 
 export const Route = createFileRoute("/onboarding")({
   head: () => ({ meta: [{ title: "Get Started — Nawasena" }] }),
@@ -31,7 +32,9 @@ function Onboarding() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <header className="h-16 border-b border-border flex items-center px-6">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><Sparkles className="w-4 h-4 text-primary-foreground" /></div>
+          <div className="w-8 h-8 rounded-lg bg-surface flex items-center justify-center overflow-hidden">
+            <Logo size={20} />
+          </div>
           <span className="font-semibold">Nawasena</span>
         </Link>
         <div className="ml-auto text-sm text-muted-foreground">Step {step + 1} of {steps.length}</div>
